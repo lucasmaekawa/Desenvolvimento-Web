@@ -1,13 +1,15 @@
 <?php include("header.php"); ?>
 <?php include("banco-produto.php") ?>
     <?php
-    $nome = $_GET["nome"];
-    $preco = $_GET["preco"];
+    $nome = $_POST["nome"];
+    $preco = $_POST["preco"];
+    $descricao = $_POST["descricao"];
+    $categoria_id = $_POST["categoria_id"];
     $conexao = mysqli_connect('localhost', 'root', '', 'loja');
      ?>
     <div class="container">
        <div class="principal">
-         <?php if(insereProduto($conexao, $nome, $preco)): ?>
+         <?php if(insereProduto($conexao, $nome, $preco, $descricao, $categoria_id)): ?>
            <p class="alert-success">
              Produto <?= $nome; ?> adicionado com sucesso!
            </p>
